@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>María Romo - Diseñadora Interactiva</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Definición de Lucidity Condensed. Requiere que tengas el archivo fuente en tu carpeta */
+        @font-face {
+            font-family: 'Lucidity Condensed';
+            src: url('lucidity-condensed.woff2') format('woff2'),
+                 url('lucidity-condensed.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
+            /* Colores extraídos de tu imagen de referencia */
             --bg-dark: #1A0B2E;        
             --purple-card: #2D124D;    
             --purple-glow: #6E30D1;    
@@ -34,10 +45,9 @@
             padding: 0 20px;
         }
 
-        /* --- Títulos en Poppins Bold --- */
+        /* Títulos: Prioridad a Lucidity Condensed, respaldo con Oswald */
         h1, h2, h3, .brand {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
+            font-family: 'Lucidity Condensed', 'Oswald', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -66,10 +76,11 @@
             color: var(--text-light);
             letter-spacing: 3px;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             color: var(--accent-yellow);
             margin-bottom: 25px;
             line-height: 1.1;
@@ -77,7 +88,9 @@
             text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
+        /* Textos en Poppins Regular (400) */
         .description {
+            font-family: 'Poppins', sans-serif;
             font-weight: 400;
             font-size: 1.15rem;
             max-width: 720px;
@@ -115,7 +128,7 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* --- SECCIÓN DE SERVICIOS --- */
+        /* --- SECCIÓN DE SERVICIOS (CUADRÍCULA 2x2) --- */
         .services-section {
             padding: 90px 20px;
             background: linear-gradient(180deg, var(--bg-dark) 0%, #120622 100%);
@@ -139,68 +152,120 @@
             border-radius: 2px;
         }
 
+        /* Aquí forzamos las 2 columnas */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); 
             gap: 35px;
         }
 
+        /* Diseño llamativo de las tarjetas sin emojis */
         .service-card {
             background-color: var(--purple-card);
             padding: 45px 35px;
             border-radius: 24px;
-            transition: transform 0.3s;
+            text-align: left; /* Texto a la izquierda para mejor lectura en bloques grandes */
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, border-color 0.3s;
             border: 2px solid transparent;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Detalle brillante en la parte superior de la tarjeta */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--purple-glow), var(--accent-yellow));
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             border-color: var(--purple-glow);
+            box-shadow: 0 20px 40px rgba(110, 48, 209, 0.3);
         }
 
         .service-card h3 {
             font-size: 1.6rem;
             color: var(--text-light);
-            margin-bottom: 10px;
+            line-height: 1.3;
+            font-weight: bold;
+            transition: color 0.3s;
         }
 
+        .service-card:hover h3 {
+            color: var(--accent-yellow);
+        }
+
+        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 50px 20px;
             font-size: 0.9rem;
             color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
+        /* --- RESPONSIVE MÓVILES --- */
         @media (max-width: 850px) {
-            .services-grid { grid-template-columns: 1fr; }
+            /* En pantallas pequeñas, pasa a 1 sola columna para no romper el diseño */
+            .services-grid {
+                grid-template-columns: 1fr; 
+                gap: 25px;
+            }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .cta-button { font-size: 1.1rem; padding: 15px 30px; }
+            h1 { font-size: 2.6rem; }
+            .hero { padding: 60px 20px; }
+            .description { font-size: 1.05rem; }
+            .cta-button { font-size: 1.15rem; padding: 16px 35px; width: 100%; }
+            .section-title { font-size: 2.2rem; }
+            .service-card { padding: 35px 25px; }
+            .service-card h3 { font-size: 1.35rem; }
         }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <img src="https://ibb.co/3yBmHwvc" alt="María Romo" class="hero-img">
+        <img src="6f9391a6-89d1-4c56-a204-d71423e8d399.jpg" alt="María Romo" class="hero-img">
         <div class="brand">María Romo - Diseñadora Interactiva</div>
         <h1>Páginas web estratégicas para negocios locales</h1>
-        <p class="description">Ayudo a comercios, restaurantes y emprendedores locales a crear una presencia digital impecable, rápida y económica. Yo diseño tu landing page lista para vender.</p>
+        <p class="description">Ayudo a comercios, restaurantes y emprendedores locales a crear una presencia digital impecable, rápida y económica. Yo diseño tu landing page lista para vender y configurada para que tus clientes se contacten directamente a tu WhatsApp en un segundo.</p>
         
-        <a href="#+57 305 3760010" class="cta-button">Escríbeme por WhatsApp</a>
+        <a href="#" class="cta-button" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Escríbeme por WhatsApp
+        </a>
     </header>
 
     <section class="services-section">
         <div class="container">
             <h2 class="section-title">¿Cómo te ayudo a vender más?</h2>
+            
             <div class="services-grid">
-                <div class="service-card"><h3>Diseño de Landing Pages de alta conversión.</h3></div>
-                <div class="service-card"><h3>Optimización de tu perfil en Google Maps.</h3></div>
-                <div class="service-card"><h3>Enlaces directos a WhatsApp.</h3></div>
-                <div class="service-card"><h3>Mantenimiento y actualización rápida.</h3></div>
+                
+                <div class="service-card">
+                    <h3>Diseño de Landing Pages de alta conversión optimizadas para celulares.</h3>
+                </div>
+
+                <div class="service-card">
+                    <h3>Configuración y optimización de tu perfil en Google Maps.</h3>
+                </div>
+
+                <div class="service-card">
+                    <h3>Botones de acción directa con enlaces personalizados a WhatsApp.</h3>
+                </div>
+
+                <div class="service-card">
+                    <h3>Mantenimiento y actualización rápida de menús, fotos o catálogos.</h3>
+                </div>
+
             </div>
         </div>
     </section>
