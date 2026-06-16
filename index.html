@@ -6,6 +6,7 @@
     <title>María Romo - Diseñadora Interactiva</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Definición de Lucidity Condensed. Requiere que tengas el archivo fuente en tu carpeta */
         @font-face {
             font-family: 'Lucidity Condensed';
             src: url('lucidity-condensed.woff2') format('woff2'),
@@ -16,6 +17,7 @@
         }
 
         :root {
+            /* Colores extraídos de tu imagen de referencia */
             --bg-dark: #1A0B2E;        
             --purple-card: #2D124D;    
             --purple-glow: #6E30D1;    
@@ -43,8 +45,8 @@
             padding: 0 20px;
         }
 
-        /* Títulos principales */
-        h1, h2, .brand {
+        /* Títulos: Prioridad a Lucidity Condensed, respaldo con Oswald */
+        h1, h2, h3, .brand {
             font-family: 'Lucidity Condensed', 'Oswald', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -67,7 +69,6 @@
             border: 4px solid var(--purple-glow);
             margin-bottom: 25px;
             box-shadow: 0 0 30px var(--purple-glow);
-            background-color: var(--purple-card); /* Fondo por si la imagen tarda en cargar */
         }
 
         .brand {
@@ -87,6 +88,7 @@
             text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
+        /* Textos en Poppins Regular (400) */
         .description {
             font-family: 'Poppins', sans-serif;
             font-weight: 400;
@@ -126,7 +128,7 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* --- SECCIÓN DE SERVICIOS --- */
+        /* --- SECCIÓN DE SERVICIOS (CUADRÍCULA 2x2) --- */
         .services-section {
             padding: 90px 20px;
             background: linear-gradient(180deg, var(--bg-dark) 0%, #120622 100%);
@@ -150,17 +152,19 @@
             border-radius: 2px;
         }
 
+        /* Aquí forzamos las 2 columnas */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr); 
             gap: 35px;
         }
 
+        /* Diseño llamativo de las tarjetas sin emojis */
         .service-card {
             background-color: var(--purple-card);
             padding: 45px 35px;
             border-radius: 24px;
-            text-align: left; 
+            text-align: left; /* Texto a la izquierda para mejor lectura en bloques grandes */
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, border-color 0.3s;
             border: 2px solid transparent;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
@@ -168,6 +172,7 @@
             overflow: hidden;
         }
 
+        /* Detalle brillante en la parte superior de la tarjeta */
         .service-card::before {
             content: '';
             position: absolute;
@@ -184,13 +189,11 @@
             box-shadow: 0 20px 40px rgba(110, 48, 209, 0.3);
         }
 
-        /* === AQUÍ ESTÁ EL CAMBIO A POPPINS REGULAR === */
         .service-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400; /* Regular */
-            font-size: 1.25rem;
+            font-size: 1.6rem;
             color: var(--text-light);
-            line-height: 1.5;
+            line-height: 1.3;
+            font-weight: bold;
             transition: color 0.3s;
         }
 
@@ -209,6 +212,7 @@
 
         /* --- RESPONSIVE MÓVILES --- */
         @media (max-width: 850px) {
+            /* En pantallas pequeñas, pasa a 1 sola columna para no romper el diseño */
             .services-grid {
                 grid-template-columns: 1fr; 
                 gap: 25px;
@@ -222,7 +226,7 @@
             .cta-button { font-size: 1.15rem; padding: 16px 35px; width: 100%; }
             .section-title { font-size: 2.2rem; }
             .service-card { padding: 35px 25px; }
-            .service-card h3 { font-size: 1.15rem; }
+            .service-card h3 { font-size: 1.35rem; }
         }
     </style>
 </head>
@@ -230,7 +234,6 @@
 
     <header class="hero">
         <img src="6f9391a6-89d1-4c56-a204-d71423e8d399.jpg" alt="María Romo" class="hero-img">
-        
         <div class="brand">María Romo - Diseñadora Interactiva</div>
         <h1>Páginas web estratégicas para negocios locales</h1>
         <p class="description">Ayudo a comercios, restaurantes y emprendedores locales a crear una presencia digital impecable, rápida y económica. Yo diseño tu landing page lista para vender y configurada para que tus clientes se contacten directamente a tu WhatsApp en un segundo.</p>
