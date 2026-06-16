@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>María Romo - Diseñadora Interactiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta de colores de María Romo */
+            --bg-dark: #441C56;
+            --purple-mid: #863A8E;
+            --purple-light: #A26EAD;
+            --accent-yellow: #F0E8B0;
+            --text-light: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- SECCIÓN PRINCIPAL (HERO) --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .hero-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-yellow);
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .brand {
+            font-size: 1.1rem;
+            color: var(--purple-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--accent-yellow);
+            margin: 0 0 25px 0;
+            line-height: 1.2;
+            max-width: 900px;
+        }
+
+        .description {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin-bottom: 45px;
+            color: #e6dbea;
+        }
+
+        /* --- BOTÓN DE WHATSAPP CON EFECTO DE PULSO --- */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25D366; 
+            color: #ffffff;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            animation: none; /* Se detiene el pulso al pasar el mouse */
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- SECCIÓN DE SERVICIOS --- */
+        .services-section {
+            padding: 80px 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-top: 2px solid var(--purple-mid);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--accent-yellow);
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--purple-mid);
+            padding: 40px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            border: 1px solid var(--purple-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background-color: #92409a; 
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            margin: 0;
+            color: #ffffff;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: var(--purple-light);
+            background-color: #31133f;
+        }
+
+        /* --- DISEÑO RESPONSIVE (MÓVILES) --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .hero { padding: 50px 20px 40px; }
+            .description { font-size: 1.05rem; }
+            .cta-button { font-size: 1.1rem; padding: 15px 30px; width: 100%; }
+            .services-section { padding: 50px 20px; }
+            .section-title { font-size: 1.8rem; margin-bottom: 35px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <img src="6f9391a6-89d1-4c56-a204-d71423e8d399.jpg" alt="María Romo" class="hero-img">
+        <div class="brand">María Romo - Diseñadora Interactiva</div>
+        <h1>Páginas web estratégicas para negocios locales</h1>
+        <p class="description">Ayudo a comercios, restaurantes y emprendedores locales a crear una presencia digital impecable, rápida y económica. Yo diseño tu landing page lista para vender y configurada para que tus clientes se contacten directamente a tu WhatsApp en un segundo.</p>
+        
+        <a href="#" class="cta-button" target="_blank">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            Escríbeme por WhatsApp
+        </a>
+    </header>
+
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">¿Cómo te ayudo a vender más?</h2>
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Diseño de Landing Pages de alta conversión (Optimizadas para celulares).</h3>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📍</div>
+                    <h3>Configuración y optimización de tu perfil en Google Maps.</h3>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Botones de acción directa con enlaces personalizados a WhatsApp.</h3>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Mantenimiento y actualización rápida de menús, fotos o catálogos.</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 María Romo - Diseñadora Interactiva. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
