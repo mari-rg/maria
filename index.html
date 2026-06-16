@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>María Romo - Diseñadora Interactiva</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Definición de Lucidity Condensed. Requiere que tengas el archivo fuente en tu carpeta */
+        @font-face {
+            font-family: 'Lucidity Condensed';
+            src: url('lucidity-condensed.woff2') format('woff2'),
+                 url('lucidity-condensed.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
-            /* Paleta de colores de María Romo */
-            --bg-dark: #441C56;
-            --purple-mid: #863A8E;
-            --purple-light: #A26EAD;
-            --accent-yellow: #F0E8B0;
-            --text-light: #ffffff;
+            /* Colores extraídos de tu imagen de referencia */
+            --bg-dark: #1A0B2E;        
+            --purple-card: #2D124D;    
+            --purple-glow: #6E30D1;    
+            --accent-yellow: #F3E779;  
+            --text-light: #FFFFFF;
+            --text-muted: #D1C4E9;
         }
         
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 0;
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-light);
@@ -34,145 +45,188 @@
             padding: 0 20px;
         }
 
-        /* --- SECCIÓN PRINCIPAL (HERO) --- */
+        /* Títulos: Prioridad a Lucidity Condensed, respaldo con Oswald */
+        h1, h2, h3, .brand {
+            font-family: 'Lucidity Condensed', 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- HERO SECTION --- */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 90px 20px 60px;
         }
 
         .hero-img {
-            width: 180px;
-            height: 180px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--accent-yellow);
+            border: 4px solid var(--purple-glow);
             margin-bottom: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 0 30px var(--purple-glow);
         }
 
         .brand {
-            font-size: 1.1rem;
-            color: var(--purple-light);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--text-light);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
             font-weight: 600;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.8rem;
             color: var(--accent-yellow);
-            margin: 0 0 25px 0;
-            line-height: 1.2;
-            max-width: 900px;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            max-width: 850px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
+        /* Textos en Poppins Regular (400) */
         .description {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
             font-size: 1.15rem;
-            max-width: 700px;
+            max-width: 720px;
             margin-bottom: 45px;
-            color: #e6dbea;
+            color: var(--text-muted);
         }
 
-        /* --- BOTÓN DE WHATSAPP CON EFECTO DE PULSO --- */
+        /* --- BOTÓN DE WHATSAPP --- */
         .cta-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             background-color: #25D366; 
             color: #ffffff;
-            padding: 18px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             text-decoration: none;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             animation: pulse 2s infinite;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-            animation: none; /* Se detiene el pulso al pasar el mouse */
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
+            animation: none;
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* --- SECCIÓN DE SERVICIOS --- */
+        /* --- SECCIÓN DE SERVICIOS (CUADRÍCULA 2x2) --- */
         .services-section {
-            padding: 80px 20px;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-top: 2px solid var(--purple-mid);
+            padding: 90px 20px;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #120622 100%);
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--accent-yellow);
-            margin-bottom: 50px;
+            font-size: 2.8rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            position: relative;
         }
 
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-yellow);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Aquí forzamos las 2 columnas */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 35px;
         }
 
+        /* Diseño llamativo de las tarjetas sin emojis */
         .service-card {
-            background-color: var(--purple-mid);
-            padding: 40px 25px;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s, background-color 0.3s;
-            border: 1px solid var(--purple-light);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            background-color: var(--purple-card);
+            padding: 45px 35px;
+            border-radius: 24px;
+            text-align: left; /* Texto a la izquierda para mejor lectura en bloques grandes */
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, border-color 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Detalle brillante en la parte superior de la tarjeta */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--purple-glow), var(--accent-yellow));
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            background-color: #92409a; 
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--accent-yellow);
+            transform: translateY(-10px);
+            border-color: var(--purple-glow);
+            box-shadow: 0 20px 40px rgba(110, 48, 209, 0.3);
         }
 
         .service-card h3 {
-            font-size: 1.15rem;
-            margin: 0;
-            color: #ffffff;
-            font-weight: 400;
-            line-height: 1.5;
+            font-size: 1.6rem;
+            color: var(--text-light);
+            line-height: 1.3;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .service-card:hover h3 {
+            color: var(--accent-yellow);
         }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             font-size: 0.9rem;
-            color: var(--purple-light);
-            background-color: #31133f;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* --- DISEÑO RESPONSIVE (MÓVILES) --- */
+        /* --- RESPONSIVE MÓVILES --- */
+        @media (max-width: 850px) {
+            /* En pantallas pequeñas, pasa a 1 sola columna para no romper el diseño */
+            .services-grid {
+                grid-template-columns: 1fr; 
+                gap: 25px;
+            }
+        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .hero { padding: 50px 20px 40px; }
+            h1 { font-size: 2.6rem; }
+            .hero { padding: 60px 20px; }
             .description { font-size: 1.05rem; }
-            .cta-button { font-size: 1.1rem; padding: 15px 30px; width: 100%; }
-            .services-section { padding: 50px 20px; }
-            .section-title { font-size: 1.8rem; margin-bottom: 35px; }
+            .cta-button { font-size: 1.15rem; padding: 16px 35px; width: 100%; }
+            .section-title { font-size: 2.2rem; }
+            .service-card { padding: 35px 25px; }
+            .service-card h3 { font-size: 1.35rem; }
         }
     </style>
 </head>
@@ -193,25 +247,22 @@
     <section class="services-section">
         <div class="container">
             <h2 class="section-title">¿Cómo te ayudo a vender más?</h2>
+            
             <div class="services-grid">
                 
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Diseño de Landing Pages de alta conversión (Optimizadas para celulares).</h3>
+                    <h3>Diseño de Landing Pages de alta conversión optimizadas para celulares.</h3>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">📍</div>
                     <h3>Configuración y optimización de tu perfil en Google Maps.</h3>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🚀</div>
                     <h3>Botones de acción directa con enlaces personalizados a WhatsApp.</h3>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🔄</div>
                     <h3>Mantenimiento y actualización rápida de menús, fotos o catálogos.</h3>
                 </div>
 
